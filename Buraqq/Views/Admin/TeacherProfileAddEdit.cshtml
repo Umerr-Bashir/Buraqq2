@@ -1,0 +1,44 @@
+﻿@using Buraqq.Models
+@model TeacherDetail
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4 mx-auto">
+            <div class="card">
+                <div class="card-title">
+                    <b>Edit Teacher Profile </b>
+                    <div class="card-body">
+                        <form asp-controller="Admin" asp-Action="TeacherProfileAddEdit" method="post" enctype="multipart/form-data">
+                            <input type="hidden" class="form-control" id="Id">
+                            <div class="form-group">
+                                <label for="Image" class="form-label">Image:</label>
+                                <input type="text" class="form-control" name="Image" id="Image" placeholder="Image">
+                            </div>
+                            <div class="form-group">
+                                <label for="Fee" class="form-label">Fee:</label>
+                                <input type="text" class="form-control" id="Fee" name="Fee" placeholder="Fee">
+                            </div>
+                            <div class="form-group">
+                                <label for="Description" class="form-label">Description:</label>
+                                <input type="text" class="form-control" id="Description" name="Description" placeholder="Description">
+                            </div>
+
+                            <select asp-for="TeacherId" asp-items="@ViewBag.teachers" class="form-control"></select>
+
+                            <div>
+                                <button type="submit" class="btn " style="color:white;background-color:orangered">Submit</button>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

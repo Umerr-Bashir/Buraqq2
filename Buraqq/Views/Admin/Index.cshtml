@@ -1,0 +1,50 @@
+﻿<link href="~/css/Buraqq.css" rel="stylesheet" type="text/css" />
+@using Buraqq.Models.ViewModel
+@model List<TeacherInfoViewModel>
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+
+<div class="container-fluid manage-cont">
+    <table class="table table-bordered table-responsive table-striped">
+
+
+
+        <thead class="table-dark">
+            <tr>
+                <th>Image</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Fee</th>
+                <th>Description</th>
+                <th>Actions @*<a class="Add-btn" href="/Admin/TeacherProfileAdd">Add</a>*@<a asp-controller="Admin" asp-action="TeacherProfileAddEdit">Add/Update</a></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Image</td>
+                    <td>@item.Name</td>
+                    <td>@string.Join(", ",item.Subject)</td>
+                    <td>Rs @item.Fee</td>
+                    <td>@item.Description</td>
+                    <td>
+                        <a asp-controller="Admin" asp-action="TeacherProfileAddEdit" asp-route-id="@item.Id">Add/Update</a><span class="fa fa-pen"></span>
+                        <a asp-controller="Admin" asp-action="TeacherProfileDelete" asp-route-id="@item.Id">Delete</a><span class="fa fa-bin"></span>
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+
+    </table>
+</div>
+
+
+
+
+
